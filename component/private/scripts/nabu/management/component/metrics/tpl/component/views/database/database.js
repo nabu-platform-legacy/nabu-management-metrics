@@ -1,5 +1,5 @@
 application.views.MetricsDatabase = Vue.extend({
-	props: ["database"],
+	props: ["database", "host"],
 	template: "#metricsDatabase",
 	data: function() {
 		return {
@@ -13,13 +13,16 @@ application.views.MetricsDatabase = Vue.extend({
 			done();
 		});
 	},
+	beforeDestroy: function() {
+		this.clearTimeout();
+	},
 	methods: {
 		reset: function() {
 			this.metrics = [];
 			this.visibleCategories = [];
 		},
 		clearTimeout: function() {
-			if (!retainTimer && this.timer != null) {
+			if (this.timer != null) {
 				clearTimeout(this.timer);
 				this.timer = null;
 			}
@@ -36,8 +39,8 @@ application.views.MetricsDatabase = Vue.extend({
 			var self = this;
 			
 			var url = this.database 
-				? "${server.root()}api/metrics/database/" + self.database + since
-				: "${server.root()}api/metrics/server" + sinceString;
+				? "${server.root()}api/metrics/database/" + self.database + sinceString
+				: "${server.root()}api/metrics/server" + (self.host ? "/" + self.host : "") + sinceString;
 				
 			return nabu.utils.ajax({
 				method: "get",
@@ -47,7 +50,7 @@ application.views.MetricsDatabase = Vue.extend({
 					since = new Date(data.overview.timestamp);
 					self.pushOverview(data.overview);
 					self.timer = setTimeout(function() {
-						self.select(since, true);
+						self.select(since);
 					}, 10000);
 				}
 			});

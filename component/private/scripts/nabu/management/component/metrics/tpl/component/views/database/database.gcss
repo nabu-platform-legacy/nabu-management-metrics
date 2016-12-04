@@ -1,4 +1,4 @@
-[route=metricsDatabase], [route=metricsLocal] {
+[route=metricsDatabase], [route=metricsLocal], [route=metricsRemote] {
 	
 	sideBar = "450px"
 	

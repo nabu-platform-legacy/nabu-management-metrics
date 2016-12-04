@@ -68,7 +68,6 @@ application.views.MetricsStatistics = Vue.extend({
 					categories.push(this.statistics[i].category);
 				}
 			}
-			console.log("categories", categories);
 			return categories;
 		}
 	}

@@ -3,7 +3,15 @@ application.services.router.register({
 	enter: function(parameters) {
 		return new application.views.MetricsDatabase({ data: parameters });
 	},
-	url: "/metrics/{database}"
+	url: "/metrics/database/{database}"
+});
+
+application.services.router.register({
+	alias: "metricsRemote",
+	enter: function(parameters) {
+		return new application.views.MetricsDatabase({ data: parameters });
+	},
+	url: "/metrics/remote/{host}"
 });
 
 application.services.router.register({

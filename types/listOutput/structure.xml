@@ -1,3 +1,4 @@
 <structure name="root">
-    <field maxOccurs="unbounded" minOccurs="0" name="metrics" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="databases" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="peers" type="java.lang.String"/>
 </structure>

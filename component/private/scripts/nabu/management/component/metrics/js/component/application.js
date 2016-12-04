@@ -2,19 +2,27 @@ application.initialize.modules.push(function() {
 	nabu.utils.ajax({
 		url: "${server.root()}api/metrics/database/list",
 		success: function(response) {
-			var databases = JSON.parse(response.responseText);
+			var result = JSON.parse(response.responseText);
 			var children = [];
 			children.push({
 				title: "Localhost",
 				handle: function() {
 					application.services.router.route("metricsLocal");
 				}
-			})
-			for (var i = 0; i < databases.length; i++) {
+			});
+			for (var i = 0; i < result.peers.length; i++) {
 				children.push({
-					title: databases[i],
+					title: result.peers[i],
 					handle: function() {
-						application.services.router.route("metricsDatabase", { database: databases[i] });
+						application.services.router.route("metricsRemote", { host: result.peers[i] });
+					}
+				});
+			}
+			for (var i = 0; i < result.databases.length; i++) {
+				children.push({
+					title: result.databases[i],
+					handle: function() {
+						application.services.router.route("metricsDatabase", { database: result.databases[i] });
 					}
 				});
 			}
