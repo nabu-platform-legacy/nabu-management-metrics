@@ -1,0 +1,44 @@
+[route=metricsDatabase], [route=metricsLocal] {
+	
+	sideBar = "450px"
+	
+	.sideBar {
+		width: ${sideBar};
+		float: left;
+		overflow: hidden;
+		
+		.category {
+			
+			.type {
+				padding: 10px;
+				border: solid 1px #ccc;
+				border-style: none none solid none;
+				cursor: pointer;
+				
+				&:hover {
+					background-color: #fafafa;
+				}
+			}
+			
+			ul {
+				margin: 0px;
+				margin-top: 10px;
+				
+				li {
+					margin: 0px;
+					list-style-type: none;
+					
+					a:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+	#metricsContent {
+		width: calc(100% - ${sideBar});
+		float: right;
+		border: solid 1px #ccc;
+		border-style: none none none solid;
+	}
+}

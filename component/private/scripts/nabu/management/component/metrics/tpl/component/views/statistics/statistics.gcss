@@ -1,0 +1,5 @@
+[route=metricsStatistics] {
+	h2 {
+		text-align: center;
+	}
+}

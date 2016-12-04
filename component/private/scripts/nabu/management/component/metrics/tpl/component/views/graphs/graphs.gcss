@@ -1,0 +1,15 @@
+[route=metricsGraphs] {
+	
+	h1 {
+		text-transform: none
+	}
+	.chart {
+		margin: 20px;
+		width: calc(50% - 40px);
+		display: inline-block;
+		svg {
+			height: 350px;
+			max-height: 350px;
+		}
+	}
+}

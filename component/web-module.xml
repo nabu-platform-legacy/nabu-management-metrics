@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <path>/api/metrics</path>
+    <webFragments>nabu.management.metrics.rest.database.list</webFragments>
+    <webFragments>nabu.management.metrics.rest.metrics.database</webFragments>
+    <webFragments>nabu.management.metrics.rest.metrics.serverLocal</webFragments>
+    <webFragments>nabu.management.metrics.rest.metrics.serverRemote</webFragments>
+</webModule>
