@@ -6,12 +6,12 @@
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="30493e97-c55c-409a-8e82-e4c490dafe53" invocationOrder="0" temporaryMapping="true" serviceId="nabu.misc.cluster.Services.getPeers" resultName="result88219c61d6b94b4b8def25f43584b44f" y="190" x="90">
 			<asynchronous>false</asynchronous>
 		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="5d447d17-7646-4d39-8a0c-b51373a94ac1" fixedValue="false" optional="false" mask="false">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="5d447d17-7646-4d39-8a0c-b51373a94ac1" optional="false" mask="false" fixedValue="false">
 			<from>result88219c61d6b94b4b8def25f43584b44f/peers</from>
 			<to>output/content/peers</to>
 		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="6ad1ab49-4828-4ef8-9408-4236eed3c257" fixedValue="false" optional="false" mask="false">
-			<from>result72b1ddbe5b9a4eb48fdbf1db37cd8f50/metricDatabaseIds</from>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="435a7f2c-a6d0-4cef-b930-44b26534e991" optional="false" mask="false" fixedValue="false">
+			<from>result72b1ddbe5b9a4eb48fdbf1db37cd8f50/metricDatabaseIds[/input/configuration/metricsFilter == null || $this ~ /input/configuration/metricsFilter]</from>
 			<to>output/content/databases</to>
 		</steps>
 	</steps>

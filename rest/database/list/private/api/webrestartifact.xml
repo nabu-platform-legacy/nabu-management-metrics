@@ -5,4 +5,5 @@
     <role>$user</role>
     <permissionAction>metrics.database.list</permissionAction>
     <output>nabu.management.metrics.types.listOutput</output>
+    <configurationType>nabu.management.metrics.configuration</configurationType>
 </restInterface>

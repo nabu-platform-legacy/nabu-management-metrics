@@ -6,4 +6,5 @@
     <role>$user</role>
     <permissionAction>metrics.local.get</permissionAction>
     <output>nabu.management.metrics.types.metricsOutput</output>
+    <configurationType>nabu.management.metrics.configuration</configurationType>
 </restInterface>
