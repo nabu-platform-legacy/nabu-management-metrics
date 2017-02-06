@@ -3,7 +3,7 @@
     <method>GET</method>
     <path>/database/{databaseId}</path>
     <queryParameters>since</queryParameters>
-    <role>$user</role>
+    <role>manager</role>
     <permissionAction>metrics.database.get</permissionAction>
     <output>nabu.management.metrics.types.metricsOutput</output>
     <configurationType>nabu.management.metrics.configuration</configurationType>
