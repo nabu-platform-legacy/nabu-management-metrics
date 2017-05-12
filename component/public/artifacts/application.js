@@ -1,35 +1,75 @@
-application.initialize.modules.push(function() {
+application.configuration.modules.push(function($services) {
 	nabu.utils.ajax({
 		url: "${server.root()}api/metrics/database/list",
 		success: function(response) {
 			var result = JSON.parse(response.responseText);
-			var children = [];
-			children.push({
+			var actions = [];
+			actions.push({
 				title: "Localhost",
-				handle: function() {
-					application.services.router.route("metricsLocal");
+				handler: function() {
+					$services.router.route("metricsLocal");
 				}
 			});
 			for (var i = 0; i < result.peers.length; i++) {
-				children.push({
+				actions.push({
 					title: result.peers[i],
-					handle: function() {
-						application.services.router.route("metricsRemote", { host: result.peers[i] });
+					peer: result.peers[i],
+					handler: function() {
+						$services.router.route("metricsRemote", { host: self.peer });
 					}
 				});
 			}
 			for (var i = 0; i < result.databases.length; i++) {
-				children.push({
+				actions.push({
 					title: result.databases[i],
-					handle: function() {
-						application.services.router.route("metricsDatabase", { database: result.databases[i] });
+					database: result.databases[i],
+					handler: function(self) {
+						$services.router.route("metricsDatabase", { database: self.database });
 					}
 				});
 			}
-			application.services.vue.menu.push({
+			$services.manager.menu({
 				title: "Metrics",
-				children: children
+				actions: actions
 			});
+		}
+	});
+	
+	$services.router.register({
+		alias: "metricsDatabase",
+		enter: function(parameters) {
+			return new application.views.MetricsDatabase({ data: parameters });
+		},
+		url: "/metrics/database/{database}"
+	});
+	
+	$services.router.register({
+		alias: "metricsRemote",
+		enter: function(parameters) {
+			return new application.views.MetricsDatabase({ data: parameters });
+		},
+		url: "/metrics/remote/{host}"
+	});
+	
+	$services.router.register({
+		alias: "metricsLocal",
+		enter: function(parameters) {
+			return new application.views.MetricsDatabase();
+		},
+		url: "/metrics"
+	});
+	
+	$services.router.register({
+		alias: "metricsStatistics",
+		enter: function(parameters) {
+			return new application.views.MetricsStatistics({ data: parameters });
+		}
+	});
+	
+	$services.router.register({
+		alias: "metricsGraphs",
+		enter: function(parameters) {
+			return new application.views.MetricsGraphs({ data: parameters });
 		}
 	});
 });
