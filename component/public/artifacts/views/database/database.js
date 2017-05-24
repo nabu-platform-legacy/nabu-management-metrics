@@ -5,7 +5,8 @@ application.views.MetricsDatabase = Vue.extend({
 		return {
 			metrics: [],
 			visibleCategories: [],
-			timer: null
+			timer: null,
+			showFilter: false
 		};
 	},
 	activate: function(done) {

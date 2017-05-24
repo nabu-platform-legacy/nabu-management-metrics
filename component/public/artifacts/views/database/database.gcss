@@ -1,18 +1,10 @@
 [route=metricsDatabase], [route=metricsLocal], [route=metricsRemote] {
 	
-	sideBar = "450px"
-	
-	.sideBar {
-		width: ${sideBar};
-		float: left;
-		overflow: hidden;
-		
+	.optional {
 		.category {
-			
+				white-space: nowrap;
 			.type {
 				padding: 10px;
-				border: solid 1px #ccc;
-				border-style: none none solid none;
 				cursor: pointer;
 				
 				&:hover {
@@ -34,11 +26,5 @@
 				}
 			}
 		}
-	}
-	#metricsContent {
-		width: calc(100% - ${sideBar});
-		float: right;
-		border: solid 1px #ccc;
-		border-style: none none none solid;
 	}
 }

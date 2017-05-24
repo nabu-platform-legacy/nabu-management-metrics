@@ -1,12 +1,9 @@
 [route=metricsGraphs] {
-	
-	h1 {
-		text-transform: none
-	}
 	.chart {
 		margin: 20px;
-		width: calc(50% - 40px);
+		max-width: calc(50% - 40px);
 		display: inline-block;
+		min-width: 25rem;
 		svg {
 			height: 350px;
 			max-height: 350px;
