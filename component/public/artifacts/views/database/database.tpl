@@ -3,7 +3,7 @@
 		<div class="page-menu">
 			<h1 class="title">Metrics</h1>
 			<div class="actions">
-				<button class="neutral" @click="showFilter = !showFilter"><span class="n-icon n-icon-search"></span><span>Search</span></button>
+				<button class="info" @click="showFilter = !showFilter"><span class="n-icon n-icon-search"></span><span>Search</span></button>
 				<div class="optional" v-show="showFilter" v-auto-close="function() { showFilter = false }">
 					<div class="category" v-for="category in categories">
 						<div class="type">
