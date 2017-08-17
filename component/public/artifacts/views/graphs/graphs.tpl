@@ -5,7 +5,7 @@
 			<div class="chart dashboard" v-for="serie in artifact.series">
 				<h1>{{ serie.name }} ({{ serie.values.length }})</h1>
 				<n-metrics-graph :serie="serie"></n-metrics-graph>
-				<table v-if="serie.statistics" cellspacing="0" cellpadding="0">
+				<table class="classic" v-if="serie.statistics" cellspacing="0" cellpadding="0">
 					<tbody>
 						<tr>
 							<td class="title">Oldest Value</td>

@@ -2,7 +2,7 @@
 	<div class="metricsStatistics">
 		<div class="category" v-for="category in categories">
 			<h2>{{ category }}</h2>
-			<table class="statistics" cellspacing="0" cellpadding="0">
+			<table class="classic statistics" cellspacing="0" cellpadding="0">
 				<thead>
 					<tr>
 						<td>Id</td>
